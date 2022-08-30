@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Routes as RoutesComponent } from 'react-router-dom';
 
-function App() {
+import Routes from './Utils/routes';
+import Home from './Views/Home';
+import NotFound from './Views/NotFound';
+import TextPrinter from './Views/TextPrinter';
+
+const { HOME, NOT_FOUND, PRINTER } = Routes;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RoutesComponent>
+      <Route path={HOME} element={<Home />} />
+      <Route path={`${PRINTER}/:textToPrint`} element={<TextPrinter />} />
+      <Route path={NOT_FOUND} element={<NotFound />} />
+    </RoutesComponent>
   );
-}
+};
 
 export default App;
