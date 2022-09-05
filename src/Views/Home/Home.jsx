@@ -4,15 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
-import { ButtonsSeparator, Container, ParamH1, ParamH12 } from './styles';
+import { ButtonsSeparator, Container, ParamH1 } from './styles';
 import Routes from '../../Utils/routes';
-import ExampleComponent from '../../Components/ExampleComponent/ExampleComponent';
 
 const Home = () => {
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
-  // Tenemos lo mismo en dos lados y nos mostrar que es lo mismo cambiando la variablea true or false
-  const usingReusableComponents = false;
 
   useEffect(() => {
     console.log(navigator.language);
@@ -20,25 +17,19 @@ const Home = () => {
 
   return (
     <Container>
-      {usingReusableComponents ? (
-        <ExampleComponent font1='10rem' font2='2rem' />
-      ) : (
-        <>
-          <ParamH1 newFontSize='5rem'>Texto1</ParamH1>
-          <ParamH12 newFontSize='2rem'>Texto2</ParamH12>
-          <div>Div normal sin style</div>
-          <div
-            style={{
-              background: 'yellow',
-              borderWidth: 1,
-              borderColor: 'red',
-              borderStyle: 'solid',
-            }}
-          >
-            Div con style in line
-          </div>
-        </>
-      )}
+      <h1
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '5rem',
+          margin: 0,
+        }}
+      >
+        Title
+      </h1>
+      {/* Lo mismo que arriba pero los estilos estan aplicados al componente */}
+      <ParamH1 newFontSize='2rem'>Styled Component</ParamH1>
       {/* https://mui.com/material-ui/react-text-field/ */}
       <div style={{ width: 300 }}>
         <TextField

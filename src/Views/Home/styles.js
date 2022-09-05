@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 
-// Es preferible usar estas dos opciones
 export const Container = styled.div(() => ({
   height: '100%',
   width: '100%',
@@ -15,6 +14,7 @@ export const ParamH1 = styled.h1(({ newFontSize }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   fontSize: newFontSize,
+  margin: 0,
 }));
 
 export const ButtonsSeparator = styled.div(() => ({
@@ -23,12 +23,3 @@ export const ButtonsSeparator = styled.div(() => ({
   flexDirection: 'column',
   display: 'flex',
 }));
-
-// Pero también se puede hacer algo así
-
-export const ParamH12 = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: ${(props) => props.newFontSize};
-`;
