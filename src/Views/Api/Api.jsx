@@ -17,20 +17,14 @@ const Api = () => {
         });
   }, []);
 
-  return (
-    <Container>
-        {apiResponse.map((post) => {
-          return (
-              <div className="post-card" key={post.id}>
-                <h2 className="post-title">{post.title}</h2>
-                <p className="post-body">{post.body}</p>
-                <div className="button">
-                  <div className="delete-btn">Delete</div>
-                </div>
-              </div>
-          );
-        })}
-    </Container>
-  );
+    return (
+        <Container>
+            <ul>
+                {apiResponse && apiResponse.map((item) => {
+                    return <li key={item.id}>{item.title}</li>
+                })}
+            </ul>
+        </Container>
+    );
 };
 export default Api;
